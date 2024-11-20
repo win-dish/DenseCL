@@ -5,6 +5,9 @@ import os
 import os.path as osp
 import time
 
+import sys
+sys.path.append("/home/Tryland/DenseCL/")
+
 import mmcv
 import torch
 from mmcv import Config
@@ -15,6 +18,7 @@ from openselfsup.apis import set_random_seed, train_model
 from openselfsup.datasets import build_dataset
 from openselfsup.models import build_model
 from openselfsup.utils import collect_env, get_root_logger, traverse_replace
+
 
 
 def parse_args():
@@ -59,6 +63,7 @@ def main():
     args = parse_args()
 
     cfg = Config.fromfile(args.config)
+    #torch.cuda.set_device(args.local_rank)
     # set cudnn_benchmark
     if cfg.get('cudnn_benchmark', False):
         torch.backends.cudnn.benchmark = True
