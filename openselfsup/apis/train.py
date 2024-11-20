@@ -5,12 +5,14 @@ from collections import OrderedDict
 import numpy as np
 import torch
 import torch.distributed as dist
+#import torch.amp as amp
 from mmcv.parallel import MMDataParallel, MMDistributedDataParallel
 from mmcv.runner import DistSamplerSeedHook, Runner, obj_from_dict
 
 from openselfsup.datasets import build_dataloader
 from openselfsup.hooks import build_hook, DistOptimizerHook
 from openselfsup.utils import get_root_logger, optimizers, print_log
+
 try:
     import apex
 except:

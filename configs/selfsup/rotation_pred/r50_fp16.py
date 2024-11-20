@@ -63,6 +63,6 @@ checkpoint_config = dict(interval=10)
 # runtime settings
 total_epochs = 70
 # apex
-use_fp16 = True
+use_fp16 = False
 optimizer_config = dict(use_fp16=use_fp16)  # grad_clip, coalesce, bucket_size_mb, fp16
 
