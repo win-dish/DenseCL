@@ -28,7 +28,7 @@ data_source_cfg = dict(
     memcached=True,
     mclient_path='/mnt/lustre/share/memcached_client')
 data_train_list = ''
-data_train_root = 'data/coco/train2017'
+data_train_root = '/mnt/c/Users/i0011180/Data/coco2017/train2017'
 dataset_type = 'BYOLDataset'
 img_norm_cfg = dict(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
 train_pipeline = [
@@ -53,7 +53,8 @@ train_pipeline = [
                 type='GaussianBlur',
                 sigma_min=0.1,
                 sigma_max=2.0,
-                kernel_size=23)
+                kernel_size=23
+                )
         ],
         p=1.),
     dict(type='RandomAppliedTrans',
@@ -93,6 +94,6 @@ lr_config = dict(
     warmup_iters=10,
     warmup_ratio=0.0001, # cannot be 0
     warmup_by_epoch=True)
-checkpoint_config = dict(interval=10)
+checkpoint_config = dict(interval=1)
 # runtime settings
-total_epochs = 200
+total_epochs = 5
